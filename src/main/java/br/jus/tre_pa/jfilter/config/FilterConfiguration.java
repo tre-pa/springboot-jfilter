@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Configuration
-public class DataFilterConfiguration {
+public class FilterConfiguration {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -25,7 +25,7 @@ public class DataFilterConfiguration {
 	private DataSource datasource;
 
 	@Bean
-	public SqlContext qyContext() throws SQLException, IllegalAccessException {
+	public SqlContext sqlContext() throws SQLException, IllegalAccessException {
 		log.info("Iniciando configurações do SqlContext: {}", datasource.getConnection().getMetaData().getDatabaseProductName());
 		if (datasource.getConnection().getMetaData().getDatabaseProductName().equalsIgnoreCase("h2")) {
 			log.info("Data Context definido para o H2.");
