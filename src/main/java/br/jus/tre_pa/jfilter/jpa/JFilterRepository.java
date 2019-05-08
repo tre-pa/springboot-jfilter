@@ -18,7 +18,7 @@ import br.jus.tre_pa.jfilter.Projectable;
  *
  * @param <T>
  */
-public interface FilterRepository<T> {
+public interface JFilterRepository<T> {
 
 	Page<T> findAll(Class<T> entityClass, Pageable pageable, Projectable projectable, Class<? extends AbstractSpecification<T>> specificationClass, Payload payload);
 

@@ -38,12 +38,12 @@ import br.jus.tre_pa.jfilter.Projectable;
 import br.jus.tre_pa.jfilter.TriFunction;
 import br.jus.tre_pa.jfilter.jpa.AbstractSpecification;
 import br.jus.tre_pa.jfilter.jpa.AttributePath;
-import br.jus.tre_pa.jfilter.jpa.FilterRepository;
+import br.jus.tre_pa.jfilter.jpa.JFilterRepository;
 import lombok.SneakyThrows;
 
 @Repository
 @Transactional(readOnly = true)
-public class FilterRepositoryImpl<T> implements FilterRepository<T> {
+public class JFilterRepositoryImpl<T> implements JFilterRepository<T> {
 
 	@PersistenceContext
 	private EntityManager entityManager;

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import br.jus.tre_pa.jfilter.jpa.AbstractSpecification;
-import br.jus.tre_pa.jfilter.jpa.FilterRepository;
+import br.jus.tre_pa.jfilter.jpa.JFilterRepository;
 
 /**
  * 
@@ -29,7 +29,7 @@ import br.jus.tre_pa.jfilter.jpa.FilterRepository;
  * @param <ID> Tipo do atributo identificador.
  * @param <R>  Classe repository.
  */
-public abstract class AbstractCrudRest<T, ID, S extends AbstractSpecification<T>, R extends JpaRepository<T, ID> & FilterRepository<T>> extends AbstractFilterRest<T, ID, S, R> {
+public abstract class AbstractCrudRest<T, ID, S extends AbstractSpecification<T>, R extends JpaRepository<T, ID> & JFilterRepository<T>> extends AbstractFilterRest<T, ID, S, R> {
 	/**
 	 * Retorna a listagem paginada de recursos
 	 * 

@@ -15,7 +15,7 @@ import br.jus.tre_pa.jfilter.Page;
 import br.jus.tre_pa.jfilter.Payload;
 import br.jus.tre_pa.jfilter.Projectable;
 import br.jus.tre_pa.jfilter.jpa.AbstractSpecification;
-import br.jus.tre_pa.jfilter.jpa.FilterRepository;
+import br.jus.tre_pa.jfilter.jpa.JFilterRepository;
 import lombok.Getter;
 
 /**
@@ -28,7 +28,7 @@ import lombok.Getter;
  * @param <S> Classe de specification.
  * @param <R> Classe de repository.
  */
-public abstract class AbstractFilterRest<T, ID, S extends AbstractSpecification<T>, R extends JpaRepository<T, ID> & FilterRepository<T>> {
+public abstract class AbstractFilterRest<T, ID, S extends AbstractSpecification<T>, R extends JpaRepository<T, ID> & JFilterRepository<T>> {
 
 	private Class<T> entityClass;
 
