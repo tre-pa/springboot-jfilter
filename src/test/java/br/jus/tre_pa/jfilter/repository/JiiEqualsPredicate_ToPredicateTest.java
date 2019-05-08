@@ -16,7 +16,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import br.jus.tre_pa.jfilter.Filterable;
-import br.jus.tre_pa.jfilter.JiiCoreAppTest;
+import br.jus.tre_pa.jfilter.JFilterModuleConfiguration;
 import br.jus.tre_pa.jfilter.Page;
 import br.jus.tre_pa.jfilter.Payload;
 import br.jus.tre_pa.jfilter.Projectable;
@@ -29,7 +29,7 @@ import br.jus.tre_pa.jfilter.repository.specification.FooSpecification;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-@SpringBootTest(classes = { JiiCoreAppTest.class, FooSpecification.class, FooRepository.class })
+@SpringBootTest(classes = { JFilterModuleConfiguration.class })
 public class JiiEqualsPredicate_ToPredicateTest {
 
 	@Autowired

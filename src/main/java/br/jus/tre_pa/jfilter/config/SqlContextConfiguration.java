@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Configuration
-public class FilterConfiguration {
+public class SqlContextConfiguration {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
