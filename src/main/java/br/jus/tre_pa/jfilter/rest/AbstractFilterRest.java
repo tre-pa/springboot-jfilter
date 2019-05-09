@@ -11,9 +11,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import br.jus.tre_pa.jfilter.Page;
-import br.jus.tre_pa.jfilter.Payload;
-import br.jus.tre_pa.jfilter.Projectable;
+import br.jus.tre_pa.jfilter.core.Page;
+import br.jus.tre_pa.jfilter.core.Payload;
+import br.jus.tre_pa.jfilter.core.Projectable;
 import br.jus.tre_pa.jfilter.jpa.AbstractSpecification;
 import br.jus.tre_pa.jfilter.jpa.JFilterRepository;
 import lombok.Getter;

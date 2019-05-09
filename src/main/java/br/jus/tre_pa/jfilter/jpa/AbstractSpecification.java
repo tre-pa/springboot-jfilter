@@ -13,7 +13,7 @@ import javax.persistence.criteria.Root;
 
 import org.springframework.data.jpa.domain.Specification;
 
-import br.jus.tre_pa.jfilter.Filterable;
+import br.jus.tre_pa.jfilter.core.Filterable;
 import lombok.Getter;
 
 /**

@@ -10,8 +10,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Sort;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import br.jus.tre_pa.jfilter.EmptyFilterable;
-import br.jus.tre_pa.jfilter.Filterable;
+import br.jus.tre_pa.jfilter.core.EmptyFilterable;
+import br.jus.tre_pa.jfilter.core.Filterable;
 import br.jus.tre_pa.jfilter.sql.SqlOrderByStep;
 import br.jus.tre_pa.jfilter.sql.SqlPaginationStep;
 import br.jus.tre_pa.jfilter.sql.SqlWhereStep;

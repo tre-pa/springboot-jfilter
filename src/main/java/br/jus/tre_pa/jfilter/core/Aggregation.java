@@ -1,6 +1,6 @@
-package br.jus.tre_pa.jfilter;
+package br.jus.tre_pa.jfilter.core;
 
-import br.jus.tre_pa.jfilter.Aggregable.Operation;
+import br.jus.tre_pa.jfilter.core.Aggregable.Operation;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

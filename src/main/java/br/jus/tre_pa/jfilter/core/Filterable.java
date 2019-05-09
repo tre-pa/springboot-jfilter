@@ -1,4 +1,4 @@
-package br.jus.tre_pa.jfilter;
+package br.jus.tre_pa.jfilter.core;
 
 import java.util.ArrayList;
 import java.util.List;

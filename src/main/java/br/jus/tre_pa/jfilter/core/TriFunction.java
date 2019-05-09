@@ -1,4 +1,4 @@
-package br.jus.tre_pa.jfilter;
+package br.jus.tre_pa.jfilter.core;
 
 @FunctionalInterface
 public interface TriFunction<T, U, S, R> {

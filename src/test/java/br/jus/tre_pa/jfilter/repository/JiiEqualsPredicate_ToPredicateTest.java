@@ -15,11 +15,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import br.jus.tre_pa.jfilter.Filterable;
 import br.jus.tre_pa.jfilter.JFilterModuleConfiguration;
-import br.jus.tre_pa.jfilter.Page;
-import br.jus.tre_pa.jfilter.Payload;
-import br.jus.tre_pa.jfilter.Projectable;
+import br.jus.tre_pa.jfilter.core.Filterable;
+import br.jus.tre_pa.jfilter.core.Page;
+import br.jus.tre_pa.jfilter.core.Payload;
+import br.jus.tre_pa.jfilter.core.Projectable;
 import br.jus.tre_pa.jfilter.predicate.Conjunction;
 import br.jus.tre_pa.jfilter.predicate.EqualsPredicate;
 import br.jus.tre_pa.jfilter.repository.domain.Bar;

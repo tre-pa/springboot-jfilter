@@ -2,8 +2,8 @@ package br.jus.tre_pa.jfilter.sql;
 
 import java.util.List;
 
-import br.jus.tre_pa.jfilter.Aggregation;
-import br.jus.tre_pa.jfilter.Payload;
+import br.jus.tre_pa.jfilter.core.Aggregation;
+import br.jus.tre_pa.jfilter.core.Payload;
 
 public interface SqlContext {
 	SqlWhereStep selectFrom(String sql);

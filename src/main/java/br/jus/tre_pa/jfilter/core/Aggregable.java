@@ -1,4 +1,4 @@
-package br.jus.tre_pa.jfilter;
+package br.jus.tre_pa.jfilter.core;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -1,4 +1,4 @@
-package br.jus.tre_pa.jfilter;
+package br.jus.tre_pa.jfilter.core;
 
 import java.util.List;
 import java.util.Objects;

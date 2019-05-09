@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 
-import br.jus.tre_pa.jfilter.Aggregable;
-import br.jus.tre_pa.jfilter.Aggregation;
-import br.jus.tre_pa.jfilter.Page;
-import br.jus.tre_pa.jfilter.Payload;
-import br.jus.tre_pa.jfilter.Projectable;
+import br.jus.tre_pa.jfilter.core.Aggregable;
+import br.jus.tre_pa.jfilter.core.Aggregation;
+import br.jus.tre_pa.jfilter.core.Page;
+import br.jus.tre_pa.jfilter.core.Payload;
+import br.jus.tre_pa.jfilter.core.Projectable;
 
 /**
  * Interface de Repository com as funcionalidades de projeção, filtragem e agregação.

@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import br.jus.tre_pa.jfilter.Aggregation;
-import br.jus.tre_pa.jfilter.EmptyFilterable;
-import br.jus.tre_pa.jfilter.Payload;
+import br.jus.tre_pa.jfilter.core.Aggregation;
+import br.jus.tre_pa.jfilter.core.EmptyFilterable;
+import br.jus.tre_pa.jfilter.core.Payload;
 import br.jus.tre_pa.jfilter.sql.SqlContext;
 import br.jus.tre_pa.jfilter.sql.SqlWhereStep;
 
