@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.jus.tre_pa.jfilter</groupId>
 	<artifactId>springboot-jfilter</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>springboot-jfilter</name>
 	<description>Framework de Filtragem de Dados para SpringBoot</description>
 
@@ -80,7 +80,12 @@
 			<version>25.1-jre</version>
 		</dependency>
 	</dependencies>
-	<!-- <distributionManagement> <repository> <id>internal</id> <url>file://${project.build.directory}/mvn-repo</url> 
-		</repository> </distributionManagement> -->
+
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<url>http://nexus.tre-pa.gov.br:8090/nexus/content/repositories/releases</url>
+		</repository>
+	</distributionManagement>
 
 </project>
