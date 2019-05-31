@@ -30,6 +30,7 @@ import br.jus.tre_pa.jfilter.jpa.JFilterRepository;
  * @param <R>  Classe repository.
  */
 public abstract class AbstractCrudRest<T, ID, S extends AbstractSpecification<T>, R extends JpaRepository<T, ID> & JFilterRepository<T>> extends AbstractFilterRest<T, ID, S, R> {
+
 	/**
 	 * Retorna a listagem paginada de recursos
 	 * 
@@ -37,7 +38,11 @@ public abstract class AbstractCrudRest<T, ID, S extends AbstractSpecification<T>
 	 * @return Objeto page.
 	 */
 	@GetMapping
-	public ResponseEntity<Page<T>> findAll(Pageable pageable) {
+	public final ResponseEntity<Page<T>> _findAll(Pageable pageable) {
+		return this.findAll(pageable);
+	}
+
+	protected ResponseEntity<Page<T>> findAll(Pageable pageable) {
 		return ResponseEntity.ok().body(getRepository().findAll(pageable));
 	}
 
@@ -49,7 +54,11 @@ public abstract class AbstractCrudRest<T, ID, S extends AbstractSpecification<T>
 	 */
 	@GetMapping(path = "/{id}")
 	@JsonView(Views.Default.class)
-	public T findById(@PathVariable ID id) {
+	public final T _findById(@PathVariable ID id) {
+		return this.findById(id);
+	}
+
+	protected T findById(ID id) {
 		return getRepository().findById(id).orElseThrow(() -> new EntityNotFoundException("Entidade não encontrada."));
 	}
 
@@ -61,7 +70,11 @@ public abstract class AbstractCrudRest<T, ID, S extends AbstractSpecification<T>
 	 */
 	@GetMapping(path = "/{id}/detail")
 	@JsonView(Views.Detail.class)
-	public T findDetailById(@PathVariable ID id) {
+	public final T _findDetailById(@PathVariable ID id) {
+		return this.findDetailById(id);
+	}
+
+	public T findDetailById(ID id) {
 		return getRepository().findById(id).orElseThrow(() -> new EntityNotFoundException("Entidade não encontrada."));
 	}
 
@@ -73,7 +86,11 @@ public abstract class AbstractCrudRest<T, ID, S extends AbstractSpecification<T>
 	 */
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public T insert(@RequestBody @Valid T entity) {
+	public final T _insert(@RequestBody @Valid T entity) {
+		return this.insert(entity);
+	}
+
+	protected T insert(T entity) {
 		return getRepository().save(entity);
 	}
 
@@ -84,7 +101,11 @@ public abstract class AbstractCrudRest<T, ID, S extends AbstractSpecification<T>
 	 * @return Entidade gerenciada.
 	 */
 	@PutMapping(path = "/{id}")
-	public T update(@PathVariable ID id, @RequestBody T entity) {
+	public final T _update(@PathVariable ID id, @RequestBody T entity) {
+		return this.update(id, entity);
+	}
+
+	protected T update(ID id, T entity) {
 		if (!getRepository().existsById(id)) throw new EntityNotFoundException("Entidade não encontrada.");
 		return getRepository().save(entity);
 	}
@@ -96,7 +117,11 @@ public abstract class AbstractCrudRest<T, ID, S extends AbstractSpecification<T>
 	 */
 	@DeleteMapping(path = "/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void delete(@PathVariable ID id) {
+	public final void _delete(@PathVariable ID id) {
+		this.delete(id);
+	}
+
+	protected void delete(@PathVariable ID id) {
 		if (!getRepository().existsById(id)) throw new EntityNotFoundException("Entidade não encontrada.");
 		getRepository().deleteById(id);
 	}
