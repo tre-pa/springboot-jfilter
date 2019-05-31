@@ -40,9 +40,11 @@ import br.jus.tre_pa.jfilter.jpa.AbstractSpecification;
 import br.jus.tre_pa.jfilter.jpa.AttributePath;
 import br.jus.tre_pa.jfilter.jpa.JFilterRepository;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 
 @Repository
 @Transactional(readOnly = true)
+@Slf4j
 public class JFilterRepositoryImpl<T> implements JFilterRepository<T> {
 
 	@PersistenceContext
@@ -193,6 +195,7 @@ public class JFilterRepositoryImpl<T> implements JFilterRepository<T> {
 	 * 
 	 */
 	private Aggregation aggregationTemplate(Class<T> entityClass, String dataField, Specification<T> spec, Aggregable.Operation operation) {
+		log.debug("[aggregationTemplate] => class: {}, dataField: {}, operation: {}", entityClass, dataField, operation);
 		CriteriaBuilder cb = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Number> cq = cb.createQuery(Number.class);
 		Root<T> root = cq.from(entityClass);

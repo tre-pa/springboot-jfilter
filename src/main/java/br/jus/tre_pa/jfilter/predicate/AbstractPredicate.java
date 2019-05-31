@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Objects;
 
 import org.apache.commons.lang3.reflect.FieldUtils;
 
@@ -26,7 +27,10 @@ public abstract class AbstractPredicate extends Expression {
 	}
 
 	protected <T> Class<?> getDataType(Class<T> clazz, String dataField) {
-		Field field = FieldUtils.getDeclaredField(clazz, dataField, true);
+		Field field = FieldUtils.getField(clazz, dataField, true);
+		if (Objects.isNull(field)) {
+			throw new IllegalArgumentException(String.format("Não foi possível encontrar o atributo '%s' na classe '%s'. Defina o mapeamento em '%sSpecification'", dataField, clazz));
+		}
 		return field.getType();
 	}
 
