@@ -5,22 +5,17 @@ import java.util.Map;
 import java.util.function.Function;
 
 import javax.annotation.PostConstruct;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Path;
-import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.springframework.data.jpa.domain.Specification;
 
 import br.jus.tre_pa.jfilter.core.Filterable;
-import lombok.Getter;
 
 /**
  * Classe abstrata de Specification.
  *
  */
-@Getter
 public abstract class AbstractSpecification<T> {
 
 	private Map<String, AttributePath> paths = new HashMap<>();
@@ -31,21 +26,16 @@ public abstract class AbstractSpecification<T> {
 	}
 
 	/**
-	 * Specification variável com os predicados definidos pelo usuário via Filterable.
+	 * Specification variável com os predicados definidos pelo usuário via
+	 * Filterable.
 	 * 
 	 * @param entityClass Entidade alvo da Specification
-	 * @param filterable  Classe Filterable com os predicados definidos pelo usuário.
+	 * @param filterable  Classe Filterable com os predicados definidos pelo
+	 *                    usuário.
 	 * @return Specification
 	 */
-	@SuppressWarnings("serial")
 	public final Specification<T> variable(Class<T> entityClass, Filterable filterable) {
-		return new Specification<T>() {
-
-			@Override
-			public Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-				return filterable.toPredicate(entityClass, root, query, criteriaBuilder, paths);
-			}
-		};
+		return (root, cq, cb) -> filterable.toPredicate(entityClass, root, cq, cb, paths);
 	}
 
 	/**
@@ -53,29 +43,30 @@ public abstract class AbstractSpecification<T> {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("serial")
 	public Specification<T> fixed() {
-		return new Specification<T>() {
-			@Override
-			public Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-				return null;
-			}
-		};
+		return (root, cq, cb) -> null;
 	}
 
 	/**
-	 * Método que deve ser implementado com o mapeamento dos relacionamentos e os respetivos Path (Criateria API).
+	 * Método que deve ser implementado com o mapeamento dos relacionamentos e os
+	 * respetivos Path (Criateria API).
 	 * 
+	 * <p>
 	 * <code>
 	 * &#64;Override protected void configure() {
 	 * 		 map("bar.name", String.class, root -> root.join("bar", JoinType.LEFT).get("name")); 
 	 * }
 	 * </code>
-	 * 
+	 * </p>
 	 */
 	protected void configure() {}
 
 	protected final void map(String path, Class<?> fieldType, Function<Root<?>, Path<?>> map) {
 		paths.put(path, new AttributePath(fieldType, map));
 	}
+
+	public final Map<String, AttributePath> getPaths() {
+		return paths;
+	}
+
 }
