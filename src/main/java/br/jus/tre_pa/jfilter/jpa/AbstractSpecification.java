@@ -38,7 +38,7 @@ public abstract class AbstractSpecification<T> {
 	 * @return Specification
 	 */
 	@SuppressWarnings("serial")
-	public Specification<T> variable(Class<T> entityClass, Filterable filterable) {
+	public final Specification<T> variable(Class<T> entityClass, Filterable filterable) {
 		return new Specification<T>() {
 
 			@Override
