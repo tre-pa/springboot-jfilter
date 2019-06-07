@@ -49,7 +49,7 @@ public abstract class AbstractFilterRest<T, ID, S extends AbstractSpecification<
 
 	@SuppressWarnings("unchecked")
 	@PostConstruct
-	protected void init() {
+	private void init() {
 		this.repository = (R) appContext.getBean(ResolvableType.forClass(this.getClass()).getSuperType().getGeneric(3).getRawClass());
 	}
 
@@ -62,7 +62,7 @@ public abstract class AbstractFilterRest<T, ID, S extends AbstractSpecification<
 	 * @return
 	 */
 	@PostMapping("/filter")
-	public ResponseEntity<Page<T>> filter(@RequestBody(required = false) Payload payload, Pageable pageable, Projectable projectable) {
+	public final ResponseEntity<Page<T>> filter(@RequestBody(required = false) Payload payload, Pageable pageable, Projectable projectable) {
 		return ResponseEntity.ok(repository.findAll(entityClass, pageable, projectable, specificationClass, payload));
 	}
 }

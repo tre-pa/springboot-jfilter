@@ -1,0 +1,17 @@
+= springboot-jfilter
+
+Biblioteca springboot que tem como objetivo expor uma API filtragem de dados.
+
+== Como usar?
+
+Para a utilizar a biblioteca é necessário a inclusão da dependência correspondente *pom.xml*
+
+[source, xml]
+----
+<dependency>
+	<groupId>br.jus.tre_pa.jfilter</groupId>
+	<artifactId>springboot-jfilter</artifactId>
+	<version>1.0.0</version>
+</dependency>
+----
+
