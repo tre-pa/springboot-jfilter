@@ -29,8 +29,8 @@ public class ContainsPredicate extends AbstractPredicate {
 		Class<?> dataFieldType = Objects.nonNull(jiiAttr) ? jiiAttr.getFieldType() : getDataType(clazz, this.getDataField());
 		Path<?> path = Objects.nonNull(jiiAttr) ? jiiAttr.getMap().apply(root) : root.get(this.getDataField());
 
-		if (dataFieldType == String.class) return cb.notLike(cb.upper(path.as(String.class)), "%" + ((String) this.getValue()).toUpperCase() + "%");
-		throw new IllegalArgumentException(String.format("Não foi possível montar um predicado para o campo '%s' com o tipo 'notcontains'", this.getDataField()));
+		if (dataFieldType == String.class) return cb.like(cb.upper(path.as(String.class)), "%" + ((String) this.getValue()).toUpperCase() + "%");
+		throw new IllegalArgumentException(String.format("Não foi possível montar um predicado para o campo '%s' com o tipo 'contains'", this.getDataField()));
 	}
 
 }
