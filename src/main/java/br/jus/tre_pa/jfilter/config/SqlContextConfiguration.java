@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import br.jus.tre_pa.jfilter.sql.SqlContext;
 import br.jus.tre_pa.jfilter.sql.h2.H2ContextImpl;
+import br.jus.tre_pa.jfilter.sql.mysql.MySQLContextImpl;
 import br.jus.tre_pa.jfilter.sql.oracle.OracleContextImpl;
 import br.jus.tre_pa.jfilter.sql.postgre.PostgreContextImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -39,6 +40,10 @@ public class SqlContextConfiguration {
 		if (datasource.getConnection().getMetaData().getDatabaseProductName().equalsIgnoreCase("postgresql")) {
 			log.info("Data Context definido para o PostgreSQL.");
 			return new PostgreContextImpl(jdbcTemplate);
+		}
+		if (datasource.getConnection().getMetaData().getDatabaseProductName().equalsIgnoreCase("MySQL")) {
+			log.info("Data Context definido para o MySQL.");
+			return new MySQLContextImpl(jdbcTemplate);
 		}
 		throw new IllegalAccessException("Nenhuma implementação de contexto de dados encontado.");
 	}
