@@ -39,7 +39,7 @@ public class OracleContextImpl implements SqlContext {
 
 	@Override
 	public List<Aggregation> aggregation(String sql, Payload payload) {
-		if (Objects.nonNull(payload) && Objects.nonNull(payload.getAggregables())) return null;
+		if (Objects.isNull(payload) || Objects.isNull(payload.getAggregables())) return null;
 		List<Aggregation> aggregrations = Arrays.asList(payload.getAggregables()).stream().map(it -> {
 			String whereSql = payload.getFilterable() instanceof EmptyFilterable ? "" : String.format("where %s", payload.getFilterable().toSql());
 			String aggSql = String.format("select %s(%s) from ( %s ) %s ", it.getOperation().name(), it.getDataField(), sql, whereSql);
