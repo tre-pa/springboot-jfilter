@@ -48,8 +48,8 @@ public class EqualsPredicate extends AbstractPredicate {
 
 		if (dataFieldType == Boolean.class && (boolean) this.getValue() == true) return cb.isTrue(path.as(Boolean.class));
 		if (dataFieldType == Boolean.class && (boolean) this.getValue() == false) return cb.isFalse(path.as(Boolean.class));
-		if (this.getValue() == "@notnull") return cb.isNotNull(path);
-		if (this.getValue() == "@null") return cb.isNull(path);
+		if (this.getValue().equals("@notnull")) return cb.isNotNull(path);
+		if (this.getValue().equals("@null")) return cb.isNull(path);
 		if (dataFieldType.isEnum()) return cb.equal(path, Enum.valueOf((Class<Enum>) dataFieldType, String.valueOf(this.getValue())));
 		return cb.equal(path, this.getValue());
 	}
